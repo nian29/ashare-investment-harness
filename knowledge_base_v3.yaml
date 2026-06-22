@@ -1,11 +1,11 @@
 # A股投资知识库 v3 — 从 knowledge/*.md 自动生成
-# 生成时间: 2026-06-22 12:28
+# 生成时间: 2026-06-22 12:36
 # 不要手动编辑此文件！MD 是源头，修改请改 knowledge/ 下的 MD 文件
 # 然后运行: python scripts/yaml_extractor.py
 
 meta:
   version: 0.1.0
-  generated: 2026-06-22 12:28
+  generated: 2026-06-22 12:36
   source: Auto-extracted from knowledge/*.md
   total_files: '35'
 stocks:
@@ -61,31 +61,150 @@ sectors:
   - file: knowledge\04-行业框架\etf-investment-methodology.md
     name: ETF 投资方法论
     filename: etf-investment-methodology
-    key_metrics: []
-    valuation_logic: ''
+    key_metrics:
+      - name: '**你在买什么**'
+        value: 一家公司的未来现金流 | 一个行业的整体表现
+        source: 表格行
+      - name: '**要做的事**'
+        value: 分析公司护城河、财务、管理层 | 判断行业景气度方向 + 估值水位
+        source: 表格行
+      - name: '**最重要的变量**'
+        value: 公司自身经营 | 行业指数 PE/PB 分位数
+        source: 表格行
+      - name: '**会归零吗**'
+        value: 会（公司破产） | 不会（指数调整成分股，烂公司被淘汰）
+        source: 表格行
+      - name: '**需要止损吗**'
+        value: 必须（-8%硬止损） | 基本不需要（越跌越买是合理的）
+        source: 表格行
+      - name: '**适合越跌越买吗**'
+        value: 不一定（跌可能是因为基本面真坏了） | 通常适合（行业指数长期向上 + 成分股自动迭代）
+        source: 表格行
+      - name: '**最大风险**'
+        value: 公司暴雷 | 行业长期衰退（如煤炭 ETF 在能源转型时代）
+        source: 表格行
+      - name: '**收益来源**'
+        value: 利润增长 + 估值修复 | 行业指数上涨 + 股息
+        source: 表格行
+    valuation_logic: '估值水位 |
+
+      | **最重要的变量** | 公司自身经营 | 行业指数 PE/PB 分位数 |
+
+      | **会归零吗** | 会（公司破产） | 不会（指数调整成分股，烂公司被淘汰） |
+
+      | **需要止损吗** | 必须（-8%硬止损） | 基本不需要（越跌越买是合理的） |
+
+      | **适合越跌越买吗** | 不一定（跌可能是因为基本面真坏了） | 通常适合（行业指数长期向上 + 成分股自动迭代） |
+
+      | **最大风险** | 公司暴雷 | 行业长期衰退（如煤炭 ETF 在能源转型时代） |
+
+      | **收益来源** | 利润增长 + 估值修复 | 行业指数上涨 + 股息 |
+
+
+      **关键结论**：个股止损、ETF 越跌越买——因为 ETF 不会归零，行业指数长期向上，烂公司被指数自动淘汰。'
     cycle_position: ''
   - file: knowledge\04-行业框架\industry-banking-framework.md
     name: 银行业分析框架
     filename: industry-banking-framework
-    key_metrics: []
-    valuation_logic: ''
+    key_metrics:
+      - name: 二、核心指标四件套（每次必看）
+        value: ''
+        source: 指标标题
+      - name: 净息差（NIM）
+        value: 净息差 = 生息资产收益率 − 计息负债成本率
+        source: 指标标题
+      - name: 不良贷款率 + 关注类贷款迁徙率
+        value: 不良率是静态的，**关注类贷款迁徙率是动态的**——它告诉你"下一批不良从哪来"。
+        source: 指标标题
+      - name: 拨备覆盖率
+        value: 拨备覆盖率 = 贷款损失准备 / 不良贷款余额
+        source: 指标标题
+      - name: 资本充足率
+        value: 资本充足率 = 资本净额 / 风险加权资产
+        source: 指标标题
+      - name: 三、银行的 ROE 拆解——理解"为什么 ROE 只有 10%"
+        value: ROE = 净利润 / 净资产 = 10.16%（农行 2025）
+        source: 指标标题
+      - name: 路径 A：吃股息（你现在的策略）
+        value: 适合标的：农行、建行、中行等国有大行
+        source: 指标标题
+      - name: 路径 C：赌增长
+        value: 适合标的：招商银行、宁波银行等零售/财富管理强的银行
+        source: 指标标题
+    valuation_logic: "综合评估\n\n用晨星护城河框架对照：\n\n```\n□ 护城河定性：牌照（有效规模）+ 转换成本\n   → 银行牌照是稀缺资源，新进入者几乎不可能\n   → 企业换银行 = 所有贷款/结算/代发工资要重签，转换成本极高\n\
+      \n□ 护城河宽度：宽阔\n   → 四大行基本不可替代，央行最后贷款人身份决定大而不倒\n\n□ 护城河趋势：稳定偏正面\n   → 县域存款成本优势（1.28%）是全行最低的——别人拿不到这么便宜的钱\n   → 但息差下行压力仍在，需要关注\n\
+      \n□ 假护城河排查：\n   ⚠️ ROE 10% 不是高——靠杠杆撑起来的，不要被 40% 净利率迷惑\n\n□ 进化分类：传统护城河（壁垒强但增长有限，回报靠分红）\n```\n\n**投资逻辑一句话**：农行不是买增长的，是买分红\
+      \ + 买资产质量改善 + 买 PB 修复的。"
     cycle_position: ''
   - file: knowledge\04-行业框架\industry-consumer-framework.md
     name: 消费/食品行业分析框架
     filename: industry-consumer-framework
-    key_metrics: []
-    valuation_logic: ''
+    key_metrics:
+      - name: '**量**'
+        value: 渗透率提升——更多人买，或者每个人买更多 | 最好的增长（可持续）
+        source: 表格行
+      - name: '**价**'
+        value: 提价能力——涨价后销量不跌 | 次好的增长（但天花板有限）
+        source: 表格行
+      - name: '**品类扩张**'
+        value: 酱油 → 蚝油 → 调味酱 → 复合调味料 | 最关键的长期增长来源
+        source: 表格行
+    valuation_logic: "综合评估\n\n用晨星护城河框架：\n\n```\n□ 护城河定性：品牌（无形资产）+ 成本优势（规模经济）\n   → 品牌：海天酱油 = 酱油的代名词，提价不丢客户\n   → 成本优势：产能 400\
+      \ 万吨+（对手最大的不到 100 万吨），规模优势不可复制\n   → 渠道锁定：300 万个终端网点，新品牌根本铺不进去\n\n□ 护城河宽度：宽阔\n   → 酱油行业的格局（海天 > 25%，第二名 < 10%）几乎不可撼动\n\
+      \   → 规模优势 + 品牌认知 + 渠道密度 = 三重壁垒\n\n□ 护城河趋势：稳定偏正面\n   → 品类扩张在加速（其他 +14.55%）\n   → 灯塔工厂降本增效（结构性的）\n   → 渠道丝毫无损（6,700 家经销商稳定）\n\
+      \n□ 假护城河排查：\n   ✅ 品牌是真的（提价历史证明）\n   ✅ 高份额是真的（不是降价换来的）\n   ⚠️ ROE 下降是 H 股上市所致，不是经营恶化\n\n□ 进化分类：再投资护城河（壁垒强 + 品类扩张让利润能以高\
+      \ ROIC 再投入）\n```\n\n**投资逻辑一句话**：海天是 A 股最接近\"永续消费品\"的公司之一。买的是 10 年以上的品牌复"
     cycle_position: ''
   - file: knowledge\04-行业框架\industry-cyclical-framework.md
     name: 周期股投资框架
     filename: industry-cyclical-framework
-    key_metrics: []
-    valuation_logic: ''
+    key_metrics:
+      - name: 火电
+        value: 煤价 | ±50%
+        source: 表格行
+      - name: 钢铁
+        value: 钢价 + 铁矿石价格 | ±40%
+        source: 表格行
+      - name: 化工
+        value: 产品价格 + 原料价格 | ±50%
+        source: 表格行
+      - name: 养猪
+        value: 猪价 | ±100%
+        source: 表格行
+      - name: 航运
+        value: 运价 | ±200%
+        source: 表格行
+      - name: 银行
+        value: 利率 + 信用成本 | ±30%
+        source: 表格行
+    valuation_logic: '# 周期股投资框架> 配合 [[industry-power-framework]]（火电部分）和 [[industry-banking-framework]] 使用。> 周期股的核心悖论：PE 最低的时候最危险，PE
+      最高的时候反而是买点。---'
     cycle_position: 周期位置的五个先行指标
   - file: knowledge\04-行业框架\industry-manufacturing-framework.md
     name: 高端制造/军工行业分析框架
     filename: industry-manufacturing-framework
-    key_metrics: []
+    key_metrics:
+      - name: '**产品**'
+        value: 标准化、大宗化 | 定制化、高技术壁垒
+        source: 表格行
+      - name: '**护城河**'
+        value: 成本优势（规模） | 技术壁垒 + 客户认证
+        source: 表格行
+      - name: '**毛利率**'
+        value: 15-25% | 35-60%
+        source: 表格行
+      - name: '**增长驱动**'
+        value: 价格 + 量（产能） | 技术迭代 + 下游 CapEx
+        source: 表格行
+      - name: '**客户**'
+        value: 分散 | 高度集中（大客户依赖）
+        source: 表格行
+      - name: '**估值**'
+        value: PE 10-20x | PE 30-60x（含技术溢价）
+        source: 表格行
+      - name: '**A 股代表**'
+        value: 钢铁、水泥、化工 | 半导体设备、军工、工业自动化
+        source: 表格行
     valuation_logic: '估值方法** | PE/PS/PEG | 订单倍数 + PB（不能用 PE） |
 
 
@@ -94,7 +213,25 @@ sectors:
   - file: knowledge\04-行业框架\industry-pharma-framework.md
     name: 医药行业分析框架
     filename: industry-pharma-framework
-    key_metrics: []
+    key_metrics:
+      - name: '**护城河**'
+        value: 专利（20 年独占）+ 临床数据 | 几乎没有（专利过期后大家都能做）
+        source: 表格行
+      - name: '**毛利率**'
+        value: 80-95% | 30-60%（集采后更低）
+        source: 表格行
+      - name: '**增长逻辑**'
+        value: 研发管线 → 新药获批 → 放量 | 成本优势 + 渠道覆盖
+        source: 表格行
+      - name: '**最大风险**'
+        value: 研发失败（90% 失败率） | 集采降价（-50~-90%）
+        source: 表格行
+      - name: '**估值方法**'
+        value: DCF 折现研发管线（PE 没用） | PE + PEG（类似消费品）
+        source: 表格行
+      - name: '**A 股代表**'
+        value: 恒瑞医药、百济神州、信达 | 华海药业、人福医药
+        source: 表格行
     valuation_logic: '估值方法** | DCF 折现研发管线（PE 没用） | PE + PEG（类似消费品） |
 
       | **A 股代表** | 恒瑞医药、百济神州、信达 | 华海药业、人福医药 |'
@@ -102,20 +239,58 @@ sectors:
   - file: knowledge\04-行业框架\industry-power-framework.md
     name: 电力行业分析框架
     filename: industry-power-framework
-    key_metrics: []
-    valuation_logic: ''
+    key_metrics:
+      - name: 装机容量
+        value: 建好就不能变 | 资本开支决策（几年前就定了）
+        source: 表格行
+      - name: 利用小时数
+        value: 每年波动 | 电网调度 + 来水/来风/日照 + 检修
+        source: 表格行
+      - name: 上网电价
+        value: 非市场决定 | 政策 + 市场化交易比例
+        source: 表格行
+      - name: 成本
+        value: 每种电源不同 | 煤价/折旧/运维
+        source: 表格行
+    valuation_logic: '**投资逻辑**：- 煤价跌 → 火电利润暴增（反之，煤价涨 → 利润被吃掉）- 所以火电是**周期股**，不是公用事业股- 火电 PE 最低的时候，往往是煤价最高的时候 → 周期股的经典陷阱**当前（2026.6）**：油价/煤价下行
+      → 利好火电成本端。'
     cycle_position: ''
   - file: knowledge\04-行业框架\industry-tech-framework.md
     name: 科技/半导体行业分析框架
     filename: industry-tech-framework
-    key_metrics: []
-    valuation_logic: ''
+    key_metrics:
+      - name: 库存周期的先行指标
+        value: 领先信号（1-3 个月前预警）：
+        source: 指标标题
+      - name: 三、中周期——资本开支周期（决定 2-3 年后的供需）
+        value: 这是 Serenity 框架的核心——追踪大厂 CapEx。
+        source: 指标标题
+      - name: 五、科技股的核心分析指标（和消费/银行完全不同）
+        value: ''
+        source: 指标标题
+    valuation_logic: 'PB：轻资产，PB 没意义
+
+      ❌ 股息率：大多数科技股不分红（钱要投回研发）
+
+      ```'
     cycle_position: "当前阶段 ← 你在 CPO 讨论里所处的\n\n减速期（增速从 100% → 20%）：需求仍在增长，但加速度下降\n  → 估值开始收缩（PE 从 114x → 60x → 30x）\n  → 股价可能不跌，但因为增速放缓，PE\
       \ 被重新定价\n\n收缩期（增速变负）：产能过剩 → 砍单 → 价格战 → 利润暴跌\n  → 光模块的\"冬天\"\n\n恢复期（增速由负转正）：产能出清 → 供需修复 → 下一轮周期开始\n```"
   - file: knowledge\04-行业框架\industry-transportation-framework.md
     name: 交通运输/基础设施行业分析框架
     filename: industry-transportation-framework
-    key_metrics: []
+    key_metrics:
+      - name: '**日均车流量**'
+        value: 公司月度/季度经营数据公告 | ↑ 车多了 = 收入增。连续两个季度降就要警惕
+        source: 表格行
+      - name: '**客货比**'
+        value: 年报/调研纪要 | 客车多 = 稳（出行需求刚性）；货车多 = 跟经济周期走
+        source: 表格行
+      - name: '**单公里通行费收入**'
+        value: 自己算：年收入 ÷ 总里程 | 越高说明路段越优质。东部发达地区 > 中西部
+        source: 表格行
+      - name: '**毛利率**'
+        value: 年报利润表 | 通常50-60%，稳定就好。骤降说明养护成本暴增或车少了
+        source: 表格行
     valuation_logic: '估值方法
 
       - [[sell-discipline-framework]] — 卖出纪律

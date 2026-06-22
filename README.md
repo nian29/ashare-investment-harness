@@ -57,3 +57,57 @@ python scripts/yaml_extractor.py
 - 始终用中文回复
 - 不推荐具体买卖，给分析框架和概率判断
 - 时效性数据必须实时获取，不凭记忆
+
+## 在 Claude Code 中使用
+
+1. 在 Claude Code 中切换到项目目录：
+   ```bash
+   cd /g/ashare-investment-harness
+   ```
+   或直接打开项目：`/open G:/ashare-investment-harness`
+
+2. 对话中自然说出触发词，系统自动加载对应框架：
+
+   | 你说 | 系统做 |
+   |------|--------|
+   | "帮我看看农行" / "分析海天" | 加载对应行业框架 + 财务速查 + 估值方法论，跑五问，输出三维分析 |
+   | "今天怎么样了" | 确认交易日 → 拉数据 → 框架分析 → 生成日报 |
+   | "能买吗/能卖吗/要不要卖" | 加载卖出框架 + 行为金融 → 逐条跑检查 → 给明确判断 |
+   | "什么叫护城河" / "教我" | 切换学习模式 → 生活例子解释 → 检查理解 → 记录进度 |
+   | "止损规则是什么" | 触发 `knowledge_search.py` 从 35 个 MD 中检索 |
+
+3. 所有分析自动遵守：
+   - **三维缺一不可**（护城河 + 估值 + 风险）
+   - **事前验尸**（假设 2 年后亏一半，最可能因为什么）
+   - **反向 DCF**（当前价格在赌什么事发生）
+   - **新人模式**（所有黑话自动翻译成大白话）
+
+4. 日常维护：
+   ```bash
+   # 知识改了，同步 YAML
+   python scripts/yaml_extractor.py
+
+   # 收盘后更新价格缓存
+   python scripts/cache_update.py --prices "6.82,32.50,1.42,12.80"
+
+   # 用缓存做预警检查
+   python scripts/portfolio_tracker.py --cache
+   ```
+
+## Agents（显式调用）
+
+不依赖 AI 自动路由，需要时直接运行：
+
+```bash
+# 查看可分析的标的
+python .claude/agents/investment_analyst.py --list-tickers
+
+# 生成某只股票的分析上下文（加载知识框架 + 构建 prompt）
+python .claude/agents/investment_analyst.py --ticker 601288 --json
+
+# 组合整体风险评估
+python .claude/agents/risk_assessor.py --portfolio
+
+# 单只股票风险自检
+python .claude/agents/risk_assessor.py --ticker 603288 --price 32.50
+```

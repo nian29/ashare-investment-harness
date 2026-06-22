@@ -142,7 +142,6 @@ def extract_rules(filepath, lines):
 
 def extract_sector_info(filepath, lines):
     """从行业框架文件提取行业关键指标和框架信息"""
-    # 只处理 04-行业框架 下的文件
     if "04-行业框架" not in str(filepath):
         return None
 
@@ -153,23 +152,104 @@ def extract_sector_info(filepath, lines):
     title_match = re.search(r"^#\s*(.+)", text, re.MULTILINE)
     title = title_match.group(1).strip() if title_match else filename
 
-    # 提取关键指标：找 "核心指标"、"关键指标"、"必看指标" 段落后面的列表
+    # === 提取关键指标：解析 Markdown 表格 ===
     metrics = []
-    metric_section = re.search(r"(?:核心|关键|必看)\s*指标[\s\S]*?(?=\n##|\n---|\Z)", text, re.DOTALL)
-    if metric_section:
-        for line in metric_section.group().split("\n"):
-            line = line.strip()
-            m = re.match(r"[-•]\s*(.+?)[：:]\s*(.+)", line)
-            if m:
-                metrics.append({"name": m.group(1).strip(), "description": m.group(2).strip()[:200]})
+    in_table = False
+    table_header = None
 
-    # 提取估值逻辑
+    for line in lines:
+        stripped = line.strip()
+
+        # 检测表格开始
+        if stripped.startswith("|") and not stripped.startswith("|---") and not stripped.startswith("|--"):
+            cols = [c.strip() for c in stripped.split("|") if c.strip()]
+
+            # 跳过非指标表格（如"卖出信号"、"风险来源"、"变更记录"等）
+            if any(skip in line for skip in ("信号", "风险来源", "变更", "日期", "卖出", "⚠️", "规则")):
+                continue
+
+            if table_header is None:
+                # 第一行是表头
+                table_header = cols
+            else:
+                # 数据行：要求 >= 3 列（名称+含义+标准）
+                if len(cols) >= 3 and len(cols[0]) >= 2:
+                    # 跳过非指标行（"乐观叙事"、"悲观叙事"等）
+                    if cols[0] in ("维度", "乐观叙事"):
+                        continue
+                    metrics.append({
+                        "name": cols[0][:60],
+                        "value": " | ".join(cols[1:])[:300],
+                        "source": "表格行",
+                    })
+        elif stripped.startswith("|---") or stripped.startswith("|--"):
+            # 表头分隔行，表示确实是个表格
+            in_table = True
+            continue
+        elif stripped.startswith("## ") or stripped == "":
+            # 新段落或空行结束表格
+            if table_header and metrics:
+                # 只保留第一个表格（核心指标表）
+                break
+            table_header = None
+
+    # 如果表格没抓到，回退到 ### 指标 N：标题模式
+    if not metrics:
+        for i, line in enumerate(lines):
+            m = re.match(r"#{2,4}\s*(?:指标\s*\d+[：:]?\s*)?(.+)", line.strip())
+            if m and any(kw in line for kw in ("指标", "净息", "不良", "拨备", "ROE", "ROA", "资本", "股息", "PB", "PE", "增长", "营收", "毛利", "净利", "产能", "利用", "车流")):
+                name = m.group(1).strip()
+                # 取下一行的非空文本作为描述
+                desc_parts = []
+                for j in range(i + 1, min(i + 5, len(lines))):
+                    nl = lines[j].strip()
+                    if nl.startswith("#") or nl == "":
+                        continue
+                    if len(nl) > 10:
+                        desc_parts.append(nl[:150])
+                        break
+                value = desc_parts[0] if desc_parts else ""
+                if len(name) >= 2:
+                    metrics.append({"name": name[:60], "value": value[:300], "source": "指标标题"})
+
+    # 如果还是没抓到，回退到列表模式
+    if not metrics:
+        metric_section = re.search(r"(?:核心|关键|必看)\s*指标[\s\S]*?(?=\n##|\n---|\Z)", text, re.DOTALL)
+        if metric_section:
+            for line in metric_section.group().split("\n"):
+                line = line.strip()
+                m = re.match(r"[-•]\s*(.+?)[：:]\s*(.+)", line)
+                if m:
+                    metrics.append({"name": m.group(1).strip()[:60], "value": m.group(2).strip()[:300], "source": "列表行"})
+
+    # === 提取估值逻辑 ===
     valuation = ""
-    val_match = re.search(r"(?:估值|定价)(?:逻辑|方法|看|怎么看)[\s\S]*?(?=\n##|\n---|\Z)", text, re.DOTALL)
-    if val_match:
-        valuation = val_match.group().strip()[:500]
+    # 多种模式搜索估值相关内容
+    val_patterns = [
+        r"(?:估值(?:逻辑|方法|看|怎么看|锚|水位|判断|区间|：|:))[\s\S]*?(?=\n### |\n## |\n---|\Z)",
+        r"(?:PB\s*(?:是|锚|为|：|:))[\s\S]*?(?=\n### |\n## |\n---|\Z)",
+        r"###\s*(?:估值.*|PB.*|PE.*|怎么看.*贵)\s*\n[\s\S]*?(?=\n### |\n## |\n---|\Z)",
+        r"(?:综合判断|综合评估)[\s\S]*?(?=\n### |\n## |\n---|\Z)",
+    ]
+    for pat in val_patterns:
+        val_match = re.search(pat, text, re.DOTALL)
+        if val_match and len(val_match.group().strip()) > 20:
+            valuation = val_match.group().strip()[:500]
+            break
 
-    # 提取周期位置
+    # 最后一招：找任何包含 "PB"、"PE"、"贵"、"便宜"、"合理" 的段落
+    if not valuation:
+        for line in lines:
+            if re.search(r"(?:PB|PE|贵不贵|便宜|合理估|低估|高估|估值)", line.strip()):
+                idx = lines.index(line)
+                # 取前后 3 行
+                start = max(0, idx - 3)
+                end = min(len(lines), idx + 4)
+                valuation = "".join(l.strip() for l in lines[start:end])[:300]
+                if len(valuation) > 20:
+                    break
+
+    # === 提取周期位置 ===
     cycle = ""
     cycle_match = re.search(r"(?:周期位置|行业周期|当前阶段)[\s\S]*?(?=\n##|\n---|\Z)", text, re.DOTALL)
     if cycle_match:
