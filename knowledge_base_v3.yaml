@@ -1,11 +1,11 @@
 # A股投资知识库 v3 — 从 knowledge/*.md 自动生成
-# 生成时间: 2026-06-22 12:24
+# 生成时间: 2026-06-22 12:28
 # 不要手动编辑此文件！MD 是源头，修改请改 knowledge/ 下的 MD 文件
 # 然后运行: python scripts/yaml_extractor.py
 
 meta:
   version: 0.1.0
-  generated: 2026-06-22 12:24
+  generated: 2026-06-22 12:28
   source: Auto-extracted from knowledge/*.md
   total_files: '35'
 stocks:
@@ -125,327 +125,86 @@ sectors:
       - [[financial-analysis-foundation]] — 财务分析（重点关注经营现金流 vs 净利润的差距）'
     cycle_position: ''
 rules:
-  - id: rule_howard-marks-investment-principles_tbl_000
-    name: 安全边际
-    content: 所有标的 -8%/-15% 两级止损线（按6/12收盘价更新）
-    source_file: knowledge\00-哲学层\howard-marks-investment-principles.md
-  - id: rule_howard-marks-investment-principles_001
-    name: '"普遍认为没有风险，就是最大的风险"（反过来也成立）'
-    content: 6/11市场被战争恐慌笼罩时，反而是近期最好的买点。6/12-13恐慌消退，市场大涨。
-    source_file: knowledge\00-哲学层\howard-marks-investment-principles.md
-  - id: rule_howard-marks-investment-principles_002
-    name: '"钟摆永远在极端之间摆动"'
-    content: 地缘风险的钟摆正在从"战争恐慌"极端向"和平乐观"摆动。但马克斯提醒我们——**钟摆很少停在中间，也不会在中间停很久**。下一个极端可能是"过度乐观"。
-    source_file: knowledge\00-哲学层\howard-marks-investment-principles.md
-  - id: rule_investment-handbook_tbl_000
-    name: 查持仓/止损线/市场日历
-    content: 本手册第八部分 + 投资日报
+  - id: rule_investment-handbook_004
+    name: 如果狂热突然结束，我的持仓能不能扛住-20%到-30%？
+    content: 如果狂热突然结束，我的持仓能不能扛住-20%到-30%？
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_001
     name: 单只上限
     content: 不超过总仓位 **20%**（海天当前28.9%已超标，后续不追加）
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_002
+    name: 行业上限
+    content: 单一行业不超过 **40%**
+    source_file: knowledge\00-哲学层\investment-handbook.md
+  - id: rule_investment-handbook_tbl_003
     name: 首次建仓
     content: 不超过该标的总计划仓位的 **50%**
     source_file: knowledge\00-哲学层\investment-handbook.md
-  - id: rule_investment-handbook_tbl_003
+  - id: rule_investment-handbook_tbl_004
     name: 🔴 硬止损
     content: 减仓一半
     source_file: knowledge\00-哲学层\investment-handbook.md
-  - id: rule_investment-handbook_tbl_004
+  - id: rule_investment-handbook_tbl_005
+    name: 🔴 清仓线
+    content: 全部清仓，不问原因
+    source_file: knowledge\00-哲学层\investment-handbook.md
+  - id: rule_investment-handbook_tbl_006
     name: 🟡 软止损
     content: 立即评估，该走就走
     source_file: knowledge\00-哲学层\investment-handbook.md
-  - id: rule_investment-handbook_tbl_005
+  - id: rule_investment-handbook_tbl_007
     name: 🟡 时间止损
     content: 重新评估逻辑，可能减仓
     source_file: knowledge\00-哲学层\investment-handbook.md
-  - id: rule_investment-handbook_tbl_006
+  - id: rule_investment-handbook_tbl_008
     name: 禁止行为
     content: 原因
     source_file: knowledge\00-哲学层\investment-handbook.md
-  - id: rule_investment-handbook_tbl_007
-    name: 6/19-21（周五日）
-    content: 周四收盘前必须完成调仓
-    source_file: knowledge\00-哲学层\investment-handbook.md
-  - id: rule_investment-handbook_tbl_008
-    name: 做买入决策前
-    content: 本手册 → 第四部分强制三步
-    source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_009
-    name: 检查是否违反纪律
-    content: 本手册 → 第五部分交易纪律
+    name: 不做笔记就交易
+    content: 没有记录就没有进步
     source_file: knowledge\00-哲学层\investment-handbook.md
-  - id: rule_game-theory-investing_tbl_000
-    name: '**谢林点**'
-    content: 上证3000点、你的-8%止损线
-    source_file: knowledge\01-决策系统\game-theory-investing.md
-  - id: rule_investment-reasoning-methodology_tbl_000
-    name: '"即使看好，控制仓位、等回调"'
-    content: 操作手册
-    source_file: knowledge\01-决策系统\investment-reasoning-methodology.md
-  - id: rule_financial-crisis-classics_001
-    name: 远因比近因重要
-    content: 近因（某银行倒闭/欺诈曝光）只是导火索，真正的杀手是远因——**投机和信用扩张**
-    source_file: knowledge\02-宏观层\financial-crisis-classics.md
-  - id: rule_financial-crisis-classics_002
-    name: 信用具有内生不稳定性
-    content: 繁荣期金融系统会自发创造新信用工具来火上浇油——"这次我们有CDO/AI/算法"——本质永远一样
-    source_file: knowledge\02-宏观层\financial-crisis-classics.md
-  - id: rule_financial-crisis-classics_003
-    name: 最后贷款人悖论
-    content: '"最后贷款人应当存在，但其存在应当让人存疑"——太确定的安全网产生道德风险，完全没有则危机会演变成大萧条'
-    source_file: knowledge\02-宏观层\financial-crisis-classics.md
-  - id: rule_financial-crisis-classics_tbl_003
-    name: 政策药方
-    content: 财政纪律 + 警惕债务积累
-    source_file: knowledge\02-宏观层\financial-crisis-classics.md
-  - id: rule_financial-crisis-classics_tbl_004
+  - id: rule_financial-crisis-classics_tbl_000
     name: 如果狂热突然结束，我的持仓能不能扛住-20%到-30%的回撤？
     content: 银行(农行)+消费(海天)+电力ETF + 31%现金 → 防御性尚可但需持续评估
     source_file: knowledge\02-宏观层\financial-crisis-classics.md
-  - id: rule_macro-voices-spectrum_tbl_000
-    name: 配置建议
-    content: 黄金5-15%、全球多元化、构建全天候组合
-    source_file: knowledge\02-宏观层\macro-voices-spectrum.md
-  - id: rule_macro-voices-spectrum_tbl_001
-    name: 海天止损
-    content: '**到就执行**'
-    source_file: knowledge\02-宏观层\macro-voices-spectrum.md
-  - id: rule_etf-investment-methodology_tbl_000
-    name: '**需要止损吗**'
-    content: 基本不需要（越跌越买是合理的）
-    source_file: knowledge\04-行业框架\etf-investment-methodology.md
-  - id: rule_etf-investment-methodology_tbl_001
-    name: 止损 -8%
-    content: ❌ 不需要，越跌越买
-    source_file: knowledge\04-行业框架\etf-investment-methodology.md
-  - id: rule_industry-manufacturing-framework_tbl_000
-    name: '**估值方法**'
-    content: 订单倍数 + PB（不能用 PE）
-    source_file: knowledge\04-行业框架\industry-manufacturing-framework.md
-  - id: rule_industry-transportation-framework_000
-    name: 短期阵痛
-    content: 资本开支高峰期（2026年计划117亿），短期压制自由现金流
-    source_file: knowledge\04-行业框架\industry-transportation-framework.md
-  - id: rule_industry-transportation-framework_001
-    name: 长期利好
-    content: 每条路完工后重新核定25年，相当于"资产续命"
-    source_file: knowledge\04-行业框架\industry-transportation-framework.md
-  - id: rule_industry-transportation-framework_002
-    name: 典型标的
-    content: 上港集团（长三角）、宁波港、唐山港（股息率高）
-    source_file: knowledge\04-行业框架\industry-transportation-framework.md
-  - id: rule_sell-discipline-framework_tbl_000
-    name: '**禀赋效应**'
-    content: 拒绝止损，小亏变大亏
+  - id: rule_sell-discipline-framework_001
+    name: 绝不因"涨太多了"而匆忙卖。 涨多了不是卖的理由，涨到超过合理估值上限才是。让利润奔跑，但用移动止盈绳拴着。
+    content: 绝不因"涨太多了"而匆忙卖。 涨多了不是卖的理由，涨到超过合理估值上限才是。让利润奔跑，但用移动止盈绳拴着。
     source_file: knowledge\05-工具层\sell-discipline-framework.md
-  - id: rule_valuation-methodology_000
-    name: PS（市销率）
-    content: 当利润为负或不稳定时，看收入质量
-    source_file: knowledge\05-工具层\valuation-methodology.md
-  - id: rule_valuation-methodology_001
-    name: PEG（看前瞻增速而非历史）
-    content: 如果明年增速 100%，PE 100 倍 = PEG 1.0
-    source_file: knowledge\05-工具层\valuation-methodology.md
-  - id: rule_valuation-methodology_002
-    name: 终局思维
-    content: 算一下 5 年后这个市场多大、这家公司能拿多少份额、能赚多少利润 → 倒推今天值多少
-    source_file: knowledge\05-工具层\valuation-methodology.md
+  - id: rule_sell-discipline-framework_002
+    name: 绝不因"跌太多了"而恐慌卖。 跌到了止损线才卖，不是"跌到你觉得难受"就卖。
+    content: 绝不因"跌太多了"而恐慌卖。 跌到了止损线才卖，不是"跌到你觉得难受"就卖。
+    source_file: knowledge\05-工具层\sell-discipline-framework.md
+  - id: rule_sell-discipline-framework_003
+    name: 绝不因"别人都在卖"而卖。 这是从众，不是决策。
+    content: 绝不因"别人都在卖"而卖。 这是从众，不是决策。
+    source_file: knowledge\05-工具层\sell-discipline-framework.md
+  - id: rule_sell-discipline-framework_004
+    name: 绝不在盘中临时决定卖。 所有卖出条件都是提前设好的。
+    content: 绝不在盘中临时决定卖。 所有卖出条件都是提前设好的。
+    source_file: knowledge\05-工具层\sell-discipline-framework.md
+  - id: rule_sell-discipline-framework_005
+    name: 绝不因为"找到了更好的机会"而匆忙卖。 先研究新机会，确认它确实更好，再执行调仓。
+    content: 绝不因为"找到了更好的机会"而匆忙卖。 先研究新机会，确认它确实更好，再执行调仓。
+    source_file: knowledge\05-工具层\sell-discipline-framework.md
   - id: rule_investment-daily-check_tbl_000
-    name: 标的
-    content: 清仓(-15%)
+    name: 单只上限
+    content: ≤20%（海天28%超标，不加仓等自然回落）
     source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_001
-    name: 催化剂
-    content: 息差企稳 + 分红提升 + 经济复苏降低坏账
+  - id: rule_investment-daily-check_tbl_001
+    name: 单行业上限
+    content: ≤40%
     source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_002
-    name: 催化剂
-    content: 餐饮复苏 + 原料成本低位 + 品类扩展加速
-    source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_003
-    name: 路线 A
-    content: 海天回到 **34.00 元**（除息后成本）→ 卖出 50 股，保留 150 股（~21%）
-    source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_004
-    name: 路线 B
-    content: 海天跌到 **31.28 元**（-8% 止损）→ 卖出 100 股，保留 100 股（止损纪律优先）
-    source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_005
-    name: 路线 C
-    content: '**2026-07-15** 前未触发 A 或 B → 以市价卖出 50 股（时间止损）'
-    source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_006
-    name: 催化剂
-    content: 夏季用电高峰 + 节能降碳政策 + 核电机制电价
-    source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_007
-    name: 催化剂
-    content: 改扩建续命（锡宜模式）+ 收费管理条例修订 + 车流量自然增长
-    source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_tbl_008
+  - id: rule_investment-daily-check_tbl_002
     name: 硬止损
     content: 单只 -8% 减半，-15% 全清
     source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_tbl_009
-    name: 移动止盈
-    content: 从最高点回撤 -8% 触发
-    source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_investment-daily-check_tbl_010
+  - id: rule_investment-daily-check_tbl_003
     name: 买入纪律
     content: 分2-3次、不开盘30分钟内、不追涨停
     source_file: knowledge\06-执行层\investment-daily-check.md
-  - id: rule_pre-trade-checklist_tbl_000
-    name: 仓位太重："全买进去"
-    content: 单只不超过20%，永远留现金
-    source_file: knowledge\06-执行层\pre-trade-checklist.md
-  - id: rule_pre-trade-checklist_001
-    name: 截图存手机
-    content: 把正面"买入七问"截图存相册，下单前翻出来看
-    source_file: knowledge\06-执行层\pre-trade-checklist.md
-  - id: rule_pre-trade-checklist_002
-    name: 设交易密码
-    content: 把你的交易密码改成"止损了吗"的首字母（ZSLM+数字）
-    source_file: knowledge\06-执行层\pre-trade-checklist.md
-  - id: rule_pre-trade-checklist_003
-    name: 延迟规则
-    content: 晚上想买 → 睡一觉，第二天早上再决定（90%的冲动会消失）
-    source_file: knowledge\06-执行层\pre-trade-checklist.md
-  - id: rule_pre-trade-checklist_004
-    name: 决策日志
-    content: 每次下单后在日记里写一句话，半年后回头看
-    source_file: knowledge\06-执行层\pre-trade-checklist.md
-  - id: rule_stock-picking-process_000
-    name: 看历史
-    content: 这个价格在它过去5年里算贵还是便宜？
-    source_file: knowledge\06-执行层\stock-picking-process.md
-  - id: rule_stock-picking-process_001
-    name: 反向推
-    content: 当前价格"赌"的利润增速是多少？这个增速实际能做到吗？
-    source_file: knowledge\06-执行层\stock-picking-process.md
-  - id: rule_stock-picking-process_002
-    name: 跟同行比
-    content: 同一行业里，它的价格是贵还是便宜？
-    source_file: knowledge\06-执行层\stock-picking-process.md
-  - id: rule_investment-beginner-mode_000
-    name: 数字要说人话
-    content: '"浮亏-144元"不够——要加"就是你900股农行从买入到现在账面亏了144块，还没卖所以不是实际亏损"。'
-    source_file: knowledge\07-基础\investment-beginner-mode.md
-  - id: rule_investment-beginner-mode_001
-    name: 禁止框架黑话
-    content: 不要写"根据银行业框架§2"或"Kindleberger狂热中后期"。改成"用银行股的分析方法来看"和"按照金融史上的规律，现在市场情绪处于偏热的阶段"。
-    source_file: knowledge\07-基础\investment-beginner-mode.md
-  - id: rule_investment-beginner-mode_002
-    name: 框架仍然要用
-    content: 背后的分析逻辑不变，但输出时必须翻译成人话。
-    source_file: knowledge\07-基础\investment-beginner-mode.md
-  - id: rule_investment-daily-log_tbl_000
-    name: 海天
-    content: -1.97%，离止损仅1.64%
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_001
-    name: 距止损(-8%)
-    content: 6.15，当前 6.35 → **还有 3.15%** ✅
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_002
-    name: 距止损(-8%)
-    content: 31.28，当前 31.80 → **仅差 0.52 元（-1.64%）‼️**
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_003
-    name: 距清仓(-15%)
-    content: 28.90，当前 31.80 → 还有 9.12%
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_004
-    name: 距止损(-8%)
-    content: 1.281，当前 ~1.3222 → **还有 3.11%** ✅
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_005
-    name: 距止损(-8%)
-    content: 11.18，当前 11.91 → **还有 6.13%** ✅
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_006
-    name: 标的
-    content: 距止损
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_002
-    name: 组合风格完全逆风时没有预案
-    content: 四只持仓全部偏向防御/价值，而市场正在极端偏好科技/成长。这不是我们的错——组合是在 6/11 建立的，当时的市场环境和现在不同。但"不是我们的错"不等于"不需要应对"。如果这种风格分化持续到 7 月，需要考虑是否需要微调组合结构。
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_003
-    name: 电力 ETF 的资金流出被忽视
-    content: 连续 3 天资金净流出、份额跌破 24 亿份。这些是技术面恶化的信号。虽然还没到止损线，但如果趋势持续，需要提前想好应对方案。
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_009
-    name: 🟡 **注意**
-    content: 确认实际跌幅，更新止损距离
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_010
-    name: 最关键变量
-    content: 昨夜沃什首秀远超预期的鹰派——废除前瞻指引、9/18 票支持加息、点阵图中位数 3.4→3.8%
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_011
-    name: 距止损
-    content: '**大幅回升至 ~7.5%（6.15）**'
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_001
-    name: 宏观传导（最重要）
-    content: 沃什鹰派 → 加息预期升温 → NIM 扩张预期 → 银行利润改善。框架第 2 章讲的两条传导路径，今天"NIM 利好"路径压倒了一切。
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_002
-    name: 资金高低切
-    content: 科技连续暴涨 5 天后，部分资金端午节前获利了结，回流低估值的银行。农行 PB 0.81、股息 ~3.7%，在加息预期下是"最像债券的股票"。
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_003
-    name: 节前避险
-    content: 3 天长假 + 鹰派美联储，不确定性升高 → 资金涌入确定性最高的资产。国有大行 = 确定性。
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_015
-    name: 距止损
-    content: '**收窄至 ~5.3%（31.28）⚠️**'
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_016
-    name: 距止损
-    content: ~6.8%（1.281）
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_017
-    name: 加息预期对电力 ETF 是双重打击
-    content: ①重资产折现率↑ → 估值↓；②资金更偏好受益加息的银行而非电力
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_018
-    name: 我的持仓能扛 -20% 到 -30% 吗？
-    content: ⭐⭐⭐½——纯防御 + 32% 现金，与 AI 泡沫关联度极低。**但本次新增一个脆弱点**：沃什鹰派如果引发新兴市场系统性回调，防御板块也无法独善其身。海天的止损线（-8%）是组合最脆弱的地方——距触发可能只有 ~5%，节后如果消费继续走弱，6
-      月底可能触发
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_019
-    name: 距-8%
-    content: —
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_020
-    name: 止损
-    content: '**11.18 元**（-8%，每 100 股最大亏 97 元）'
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_021
-    name: 距止损
-    content: 5.82%（6.15）
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_022
-    name: 距止损
-    content: '**6.12%（31.28）⚠️**'
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_023
-    name: 距止损
-    content: 6.63%（1.281）
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_024
-    name: 我的持仓能扛 -20% 到 -30% 吗？
-    content: ⭐⭐⭐½——纯防御 + 32% 现金，与 AI 泡沫关联度极低。但风格切换的持续时间是最大不确定性。若风格持续 > 3 个月 → 组合可能阴跌 -10% 到 -15%。有安全垫但浮亏会扩大。当前海天最脆弱（距止损 6.12%）
-    source_file: knowledge\08-日志\investment-daily-log.md
-  - id: rule_investment-daily-log_tbl_025
-    name: 距-8%
-    content: —
-    source_file: knowledge\08-日志\investment-daily-log.md
 formulas:
   - raw: '期望值 = 胜率 × 赔率 − 败率 × 损失
 

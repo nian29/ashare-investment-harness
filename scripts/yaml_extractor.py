@@ -34,52 +34,102 @@ YAML_OUTPUT = ROOT / "knowledge_base_v3.yaml"
 # 每个提取器是一个函数 (file_path, content_lines) -> dict | None
 
 
+# 规则关键词（用于过滤非规则行）
+RULE_KEYWORDS = [
+    "止损", "止盈", "仓位", "纪律", "必须", "禁止", "不能", "绝不",
+    "强制", "上限", "不追", "不做", "不超过", "每天", "每次",
+    "先确保", "先看", "缺一不可", "三维", "硬止损", "清仓",
+    "买得好", "防御优先", "不需要", "一定要", "务必",
+]
+
+
+def is_rule_line(line_text):
+    """判断一行文本是否是规则（而非描述/元数据/触发词）"""
+    text = line_text.lower()
+    # 过滤: 元数据类
+    skip_patterns = ["node_type", "triggers:", "description:", "type:", "originsessionid",
+                     "触发", "框架", "参见", "详见", "加载", "翻"]
+    for sp in skip_patterns:
+        if sp in text:
+            return False
+    # 过滤: 引用链接
+    if "[[" in line_text:
+        return False
+    # 必须有规则关键词
+    return any(kw in line_text for kw in RULE_KEYWORDS)
+
+
 def extract_rules(filepath, lines):
     """从 MD 文件中提取规则"""
     rules = []
+    # 只处理在"规则"或"纪律"或"检查"或"原则"段落中的行
+    in_rule_section = False
 
     for i, line in enumerate(lines):
-        line = line.strip()
+        stripped = line.strip()
 
-        # 模式 1: "- **规则名**：内容" 或 "- **规则名**: 内容"
-        m = re.match(r"[-•]\s*\*\*(.+?)\*\*[：:]\s*(.+)", line)
-        if m:
-            name = m.group(1).strip()
-            content = m.group(2).strip()
-            # 过滤掉明显不是规则的行
-            if len(name) < 3 or len(content) < 5:
-                continue
-            rules.append({
-                "id": f"rule_{filepath.stem}_{len(rules):03d}",
-                "name": name[:80],
-                "content": content[:300],
-                "source_file": str(filepath.relative_to(ROOT)),
-            })
+        # 检测段落标题
+        if re.match(r"^#{1,3}\s", stripped):
+            section_title = stripped.lower()
+            in_rule_section = any(kw in section_title for kw in
+                                  ["规则", "纪律", "纪律", "检查", "必须", "原则", "禁止", "不能",
+                                   "绝不", "止损", "止盈", "仓位", "交易", "强制"])
             continue
 
-        # 模式 2: "N. **规则名**：内容" 或 "N) **规则名**：内容"
-        m = re.match(r"(\d+)[\.\)]\s*\*\*(.+?)\*\*[：:]\s*(.+)", line)
-        if m:
-            name = m.group(2).strip()
-            content = m.group(3).strip()
-            if len(name) < 3 or len(content) < 5:
-                continue
-            rules.append({
-                "id": f"rule_{filepath.stem}_{m.group(1).zfill(3)}",
-                "name": name[:80],
-                "content": content[:300],
-                "source_file": str(filepath.relative_to(ROOT)),
-            })
+        if not in_rule_section:
             continue
 
-        # 模式 3: Markdown 表格中带规则关键词的行
-        if "|" in line and not line.startswith("|---") and not line.startswith("|--"):
-            cols = [c.strip() for c in line.split("|") if c.strip()]
+        # 模式 1: "- **规则名**：内容"
+        m = re.match(r"[-•]\s*\*\*(.+?)\*\*[：:]\s*(.+)", stripped)
+        if m:
+            name, content = m.group(1).strip(), m.group(2).strip()
+            if len(name) >= 2 and len(content) >= 5 and is_rule_line(name + content):
+                name = re.sub(r"\*+", "", name).strip()
+                content = re.sub(r"\*+", "", content).strip()
+                rules.append({
+                    "id": f"rule_{filepath.stem}_{len(rules):03d}",
+                    "name": name[:80],
+                    "content": content[:300],
+                    "source_file": str(filepath.relative_to(ROOT)),
+                })
+                continue
+
+        # 模式 2: "N. **规则名**：内容"
+        m = re.match(r"(\d+)[\.\)]\s*\*\*(.+?)\*\*[：:]\s*(.+)", stripped)
+        if m:
+            name, content = m.group(2).strip(), m.group(3).strip()
+            name = re.sub(r"\*+", "", name).strip()
+            content = re.sub(r"\*+", "", content).strip()
+            if len(name) >= 2 and len(content) >= 5 and is_rule_line(name + content):
+                rules.append({
+                    "id": f"rule_{filepath.stem}_{m.group(1).zfill(3)}",
+                    "name": name[:80],
+                    "content": content[:300],
+                    "source_file": str(filepath.relative_to(ROOT)),
+                })
+                continue
+
+        # 模式 3: 普通编号规则 "N. 内容"（可能有 **加粗**）
+        m = re.match(r"(\d+)[\.\)]\s+(.+)", stripped)
+        if m:
+            content = re.sub(r"\*+", "", m.group(2).strip())
+            if len(content) >= 8 and is_rule_line(content):
+                rules.append({
+                    "id": f"rule_{filepath.stem}_{m.group(1).zfill(3)}",
+                    "name": content[:80],
+                    "content": content[:300],
+                    "source_file": str(filepath.relative_to(ROOT)),
+                })
+                continue
+
+        # 模式 4: Markdown 表格行
+        if "|" in stripped and not stripped.startswith("|---") and not stripped.startswith("|--"):
+            cols = [c.strip() for c in stripped.split("|") if c.strip()]
             if len(cols) >= 2:
                 left, right = cols[0], cols[-1]
-                if left in ("规则", "名称", "条件", "止损线", "指标", "纪律"):
+                if left in ("规则", "名称", "条件", "止损线", "指标", "纪律", "---"):
                     continue
-                if any(kw in left + right for kw in ("止损", "仓位", "纪律", "必须", "禁止", "不能", "绝不", "强制", "-8%", "-15%")):
+                if is_rule_line(left + right):
                     rules.append({
                         "id": f"rule_{filepath.stem}_tbl_{len(rules):03d}",
                         "name": left[:80],
