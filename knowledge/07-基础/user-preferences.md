@@ -1,0 +1,15 @@
+---
+name: user-preferences
+description: 用户的系统偏好和约束
+metadata: 
+  node_type: memory
+  type: user
+  originSessionId: eabf926b-cccd-4252-a9a9-46d28f2d4b26
+---
+
+# 系统偏好
+
+- 始终用中文回复
+- 下载和安装软件尽量放到 C 盘以外的盘（F、G、E），保持 C 盘不过满
+- C 盘 126G，剩余约 24G，要省着用
+- F 盘 (181G, 58% 空闲) 和 G 盘 (149G, 95% 空闲) 空间充裕，优先使用

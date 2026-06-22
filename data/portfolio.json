@@ -1,0 +1,72 @@
+{
+  "total_capital": 24000,
+  "cash_remaining": 4102,
+  "holdings": [
+    {
+      "symbol": "601288",
+      "name": "农业银行",
+      "market": "sh",
+      "shares": 900,
+      "cost_basis": 6.690,
+      "pct": 25,
+      "stop_loss_hard": 6.15,
+      "stop_loss_clear": 5.69,
+      "logic": "高股息压舱石——国有大行牌照护城河、股息~3.7%、PB 0.8x低估",
+      "sector": "银行"
+    },
+    {
+      "symbol": "603288",
+      "name": "海天味业",
+      "market": "sh",
+      "shares": 200,
+      "cost_basis": 34.00,
+      "pct": 28,
+      "stop_loss_hard": 31.28,
+      "stop_loss_clear": 28.90,
+      "logic": "品牌+渠道+规模三重护城河、品类扩张、净利率24.4%",
+      "sector": "食品饮料",
+      "note": "仓位超标(28%>20%)，有减仓计划A/B/C"
+    },
+    {
+      "symbol": "561560",
+      "name": "电力ETF",
+      "market": "sh",
+      "shares": 2600,
+      "cost_basis": 1.392,
+      "pct": 15,
+      "stop_loss_hard": 1.281,
+      "stop_loss_clear": 1.183,
+      "logic": "火电复苏+核电装机增长+风光扩张+水电分红",
+      "sector": "电力"
+    },
+    {
+      "symbol": "600377",
+      "name": "宁沪高速",
+      "market": "sh",
+      "shares": 300,
+      "cost_basis": 12.150,
+      "pct": 15,
+      "stop_loss_hard": 11.18,
+      "stop_loss_clear": 10.33,
+      "logic": "长三角最繁忙高速、地理垄断+牌照壁垒、股息~4%",
+      "sector": "交通运输"
+    }
+  ],
+  "watchlist": [
+    {
+      "symbol": "601985",
+      "name": "中国核电",
+      "market": "sh",
+      "target_price": 9.00,
+      "max_amount": 4000,
+      "logic": "在建18台机组+机制电价+零碳政策"
+    },
+    {
+      "symbol": "600276",
+      "name": "恒瑞医药",
+      "market": "sh",
+      "max_amount": 2400,
+      "logic": "创新药占比60%+FDA出海催化"
+    }
+  ]
+}
