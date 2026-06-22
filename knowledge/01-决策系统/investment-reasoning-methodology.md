@@ -1,17 +1,3 @@
----
-name: investment-reasoning-methodology
-description: 投资分析的底层推理方法论——六大框架如何协同的六层递进分析结构
-metadata: 
-  node_type: memory
-  triggers: 
-    - 分析方法论/框架协同/怎么用框架
-    - 学习方法/投资学习
-    - 多框架配合/分析层次
-    - "用户问\"怎么分析\"\"分析思路\""
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 投资分析的底层推理方法论
 
 > 本文档不是讲"用什么框架"，而是讲"为什么这样思考"——框架之间的协同关系、分析的层次递进、每一步推理背后的逻辑。

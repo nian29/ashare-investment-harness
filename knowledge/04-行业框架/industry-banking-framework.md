@@ -1,17 +1,3 @@
----
-name: industry-banking-framework
-description: 银行业分析框架——净息差驱动、资产质量判断、资本约束逻辑、国有大行投资方法论
-metadata: 
-  node_type: memory
-  triggers: 
-    - 农行/农业银行/银行股/金融股
-    - 净息差/不良率/拨备覆盖率/资本充足率
-    - 银行估值/银行PB/银行分红
-    - 讨论利率变化对银行的影响
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 银行业分析框架
 
 > 配合 [[investment-handbook]] 维度一和维度二使用。

@@ -1,13 +1,3 @@
----
-name: investment-beginner-mode
-description: 投资新人模式——所有投资分析必须用简单语言、解释推理过程、避免框架黑话、数字要说明含义
-metadata: 
-  node_type: memory
-  type: user
-  priority: high
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 投资新人模式
 
 用户是投资新人。所有投资相关的输出必须遵守以下规则。

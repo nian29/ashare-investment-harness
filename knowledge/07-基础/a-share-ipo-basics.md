@@ -1,17 +1,3 @@
----
-name: a-share-ipo-basics
-description: A股打新基础——什么是打新、市值配售规则、申购流程、注册制下的破发风险、适合谁参与
-metadata:
-  node_type: memory
-  triggers:
-    - 打新/新股/打新股/打新债
-    - 申购/IPO
-    - 中签/破发
-    - 市值配售
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # A股打新基础
 
 > 打新就是申购新上市的公司股票——A股特有的一个"隐藏福利"。你的持仓已经自动给了你打新资格，很多人不知道。

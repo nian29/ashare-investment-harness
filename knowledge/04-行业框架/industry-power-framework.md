@@ -1,18 +1,3 @@
----
-name: industry-power-framework
-description: 电力行业分析框架——火水核风四类电源各自逻辑、电价机制改革、核电投资方法论
-metadata: 
-  node_type: memory
-  triggers: 
-    - 中国核电/电力ETF/电力股/发电
-    - 火电/水电/核电/风电/光伏
-    - 电价/利用小时数/装机容量/煤价
-    - 机制电价/电力市场化
-    - 公用事业
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 电力行业分析框架
 
 > 配合 [[investment-handbook]] 维度一和维度二使用。

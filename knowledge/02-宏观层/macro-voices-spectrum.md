@@ -1,19 +1,3 @@
----
-name: macro-voices-spectrum
-description: 宏观声音全光谱——从超级空头到超级多头，四派核心人物观点+对持仓的映射+外部顾问委员会决策对照表
-metadata:
-  node_type: reference
-  triggers:
-    - 宏观/美联储/利率/危机/崩盘/泡沫/暴跌
-    - 高志凯/达利欧/巴菲特/马克斯/洪灏/任泽平
-    - 要不要加仓防御/要不要减仓避险
-    - 讨论"别人怎么看"/市场情绪极端化
-    - 美股/AI泡沫/A股风格切换
-  replaces:
-    - gaozhikai-macro-view
-  originSessionId: 2026-06-18-macro-spectrum
----
-
 # 宏观声音全光谱
 
 > **定位**：外部顾问委员会——每派一个代表，每次宏观决策前对照。

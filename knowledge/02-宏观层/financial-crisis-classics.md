@@ -1,10 +1,3 @@
----
-name: ""
-metadata: 
-  node_type: memory
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 两本金融危机经典的核心观点
 
 > 查尔斯·金德尔伯格《疯狂、惊恐与崩溃》（Manias, Panics, and Crashes, 1978）

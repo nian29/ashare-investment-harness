@@ -1,17 +1,3 @@
----
-name: poor-charlies-almanack
-description: 《穷查理宝典》查理·芒格核心智慧——多元思维模型+逆向思考+25种误判心理学+投资检查清单
-metadata: 
-  node_type: memory
-  triggers: 
-    - 芒格/多元思维模型/能力圈
-    - 护城河持久性/逆向思考
-    - 心理偏误/从众/自视过高
-    - 好公司好价格/品质投资
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 《穷查理宝典》核心观点
 
 查理·芒格（Charlie Munger）智慧合集，彼得·考夫曼编纂。不是纯投资书，而是**理性生活与决策的通用手册**。

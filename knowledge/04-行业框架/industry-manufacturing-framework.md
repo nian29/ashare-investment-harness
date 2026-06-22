@@ -1,17 +1,3 @@
----
-name: industry-manufacturing-framework
-description: 高端制造/军工行业分析框架——订单驱动+客户认证壁垒+国产替代+军工特殊估值逻辑
-metadata: 
-  node_type: memory
-  triggers: 
-    - 军工/高端制造/半导体设备/数控机床
-    - 国产替代/自主可控
-    - 订单倍数/在手订单/认证壁垒
-    - 军费/装备列装
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 高端制造/军工行业分析框架
 
 > 高端制造是 A 股第三大板块（仅次于消费和金融），军工是高端制造里最特殊的子集。这两个行业的共同特征：**政策是大腿，订单是氧气，技术自主可控是护城河。**

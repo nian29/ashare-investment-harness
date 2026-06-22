@@ -1,17 +1,3 @@
----
-name: quarterly-report-quick-guide
-description: 季报/年报速读模板——拿到一份财报30分钟内跑完关键指标、识别危险信号、逐行业检查要点
-metadata:
-  node_type: memory
-  triggers:
-    - 季报/年报/财报/看财报
-    - 业绩预告/业绩快报
-    - 分析报表/怎么看报表
-    - 半年报/三季报
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 季报/年报速读模板
 
 > 一份季报几十页，大部分内容你不用看。这个模板告诉你**重点看哪几行、数字变了代表什么、30分钟内跑完**。

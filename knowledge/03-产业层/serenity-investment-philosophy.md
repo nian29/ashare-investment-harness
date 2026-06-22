@@ -1,18 +1,3 @@
----
-name: serenity-investment-philosophy
-description: Serenity（白毛股神）投资思想提炼——瓶颈理论+逆向工程研究法+CapEx溯源
-metadata: 
-  node_type: memory
-  triggers: 
-    - 产业链分析/瓶颈/卡脖子
-    - CapEx/资本开支/供应链
-    - AI算力/光通信/液冷/电力基础设施
-    - 押管道不押终端
-    - 碎片拼图/逆向工程
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # Serenity（白毛股神）投资思想提炼
 
 **身份**：X（Twitter）匿名交易员/研究员，粉丝75-85万，自称前AI科学家、Nature论文作者、RISC-V基金会成员

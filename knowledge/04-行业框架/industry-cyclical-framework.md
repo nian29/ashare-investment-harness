@@ -1,18 +1,3 @@
----
-name: industry-cyclical-framework
-description: 周期股投资框架——周期四阶段+五先行指标+PE陷阱+火电和银行的周期属性
-metadata: 
-  node_type: memory
-  triggers: 
-    - 周期股/周期性/煤价/钢铁/化工/航运/猪周期
-    - PE陷阱/PE最低反而危险
-    - 火电利润/银行周期属性
-    - 产能过剩/产能出清/开工率
-    - 何时见顶/何时见底
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 周期股投资框架
 
 > 配合 [[industry-power-framework]]（火电部分）和 [[industry-banking-framework]] 使用。

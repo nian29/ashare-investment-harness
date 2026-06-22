@@ -1,12 +1,3 @@
----
-name: investment-handbook
-description: A股投资完整操作手册——哲学框架+选股方法+交易纪律+风险控制，一站式速查
-metadata: 
-  node_type: memory
-  type: project
-  originSessionId: b7ab8cf4-7088-40fe-a8bc-145db6be183a
----
-
 # A股投资操作手册
 
 > 🧭 **这是整个投资知识体系的总入口。** 遇到任何投资问题，先看这份速查表，找到对应的记忆文件。

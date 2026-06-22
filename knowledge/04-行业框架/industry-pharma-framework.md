@@ -1,17 +1,3 @@
----
-name: industry-pharma-framework
-description: 医药行业分析框架——创新药vs仿制药+研发管线估值+集采影响+FDA评审
-metadata: 
-  node_type: memory
-  triggers: 
-    - 恒瑞/医药/创新药/仿制药/集采
-    - FDA/研发管线/临床
-    - 医药股/医疗器械/CXO
-    - 专利/药品审批
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 医药行业分析框架
 
 > 医药是 A 股仅次于消费的第二大"好赛道"——高毛利、强专利护城河、刚需。但也是最复杂的行业之一：研发管线决定未来、政策（集采）可以摧毁现有利润。

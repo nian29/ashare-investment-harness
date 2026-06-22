@@ -1,18 +1,3 @@
----
-name: universal-decision-framework
-description: 通用投资决策方法论——期望值思维、事前验尸、贝叶斯更新、决策日志、OODA循环
-metadata: 
-  node_type: memory
-  triggers: 
-    - 任何投资决策/买卖判断
-    - 分析个股/行业
-    - "用户问\"怎么看\"\"你觉得\"\"分析一下\""
-    - 交易时机/该不该买/该不该卖
-    - 决策质量问题/复盘
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 通用投资决策方法论
 
 > 这是比任何具体框架都更底层的东西。不看行业、不选风格，只看决策质量。

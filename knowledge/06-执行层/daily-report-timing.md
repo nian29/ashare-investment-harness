@@ -1,11 +1,3 @@
----
-name: daily-report-timing
-description: 更新投资日报前必查：确认时间+是否交易日+是否已收盘+数据可获取性
-metadata:
-  type: feedback
-  originSessionId: 2026-06-18
----
-
 # 日报更新前时间检查
 
 **Why:** 2026-06-18 更新日报时，在 A 股盘中/刚收盘阶段反复搜索收盘数据（十几次 WebSearch），数据尚未更新到搜索索引，浪费时间。以后必须先确认时间。

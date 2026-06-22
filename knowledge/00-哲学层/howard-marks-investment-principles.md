@@ -1,18 +1,3 @@
----
-name: howard-marks-investment-principles
-description: 《投资最重要的事》霍华德·马克斯核心投资准则——第二层思维+周期+防御+安全边际
-metadata: 
-  node_type: memory
-  triggers: 
-    - 第二层思维/逆向投资/防御优先
-    - 买得好比买好的更重要
-    - 市场情绪/贪婪恐惧/周期
-    - 安全边际/便宜/贵
-    - 等待机会/不追逐
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 《投资最重要的事》核心投资准则
 
 **作者**：霍华德·马克斯（橡树资本联合创始人，千亿美元级管理人）

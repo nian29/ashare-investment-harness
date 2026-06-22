@@ -1,12 +1,3 @@
----
-name: user-preferences
-description: 用户的系统偏好和约束
-metadata: 
-  node_type: memory
-  type: user
-  originSessionId: eabf926b-cccd-4252-a9a9-46d28f2d4b26
----
-
 # 系统偏好
 
 - 始终用中文回复

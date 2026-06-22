@@ -1,15 +1,3 @@
----
-name: investment-daily-log
-description: 投资日报历史日志——每天追加一条。含当日大盘+每只表现+事件+操作+决策记录
-metadata: 
-  node_type: memory
-  triggers: 
-    - 日报/每日更新/今天行情
-    - 持仓表现/今天怎么样了
-  type: project
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 投资日报·历史日志
 
 > 📌 每天更新时追加新条目到顶部。静态模板：[[investment-daily-check]]

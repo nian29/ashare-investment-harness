@@ -1,18 +1,3 @@
----
-name: industry-tech-framework
-description: 科技/半导体行业分析框架——三周期叠加（库存+CapEx+技术路线）+科技股特化指标
-metadata: 
-  node_type: memory
-  triggers: 
-    - CPO/光模块/半导体/芯片/AI算力
-    - 中际旭创/天孚通信/新易盛
-    - 英伟达/GPU/服务器
-    - 科技股/硅光/VCSEL
-    - 库存周期/CapEx周期/技术路线
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 科技/半导体行业分析框架
 
 > 配合 CPO/光模块讨论使用。科技股不是不能用框架，是框架跟消费/银行完全不同——利润不是核心变量，技术路线和产能周期才是。

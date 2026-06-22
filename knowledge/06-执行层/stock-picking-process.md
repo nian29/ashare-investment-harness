@@ -1,16 +1,3 @@
----
-name: stock-picking-process
-description: 系统化选股流程——从用户输入到最终判断的完整步骤、两种场景（用户有标的vs用户要推荐）、新手友好的输出格式
-metadata: 
-  node_type: memory
-  triggers: 
-    - 选股/选股票/推荐股票/帮我选
-    - 分析某只股票/怎么看/能不能买
-    - 有没有好股票
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 系统化选股流程
 
 > 这是帮你选股票的标准流程。每次你想找新股票时，按下面两步走。

@@ -1,16 +1,3 @@
----
-name: investment-daily-check
-description: 持仓日报静态模板——持仓明细+每只逻辑+止损线+交易记录+关注池（不含每日行情数据）
-metadata: 
-  node_type: memory
-  triggers: 
-    - 持仓/仓位/盈亏查询
-    - 日报/每天更新
-    - 止损线检查
-  type: project
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 持仓日报·静态模板
 
 > 📌 本文件只含**不变信息**（持仓结构+每只逻辑+规则）。每日行情数据写入 `investment-daily-log.md`（追加）和桌面 `投资日报.txt`（覆盖）。

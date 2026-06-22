@@ -1,18 +1,3 @@
----
-name: sell-discipline-framework
-description: 卖出决策框架——三档止盈+移动止盈+基本面恶化早期信号+仓位再平衡
-metadata: 
-  node_type: memory
-  triggers: 
-    - 什么时候卖/止盈/止损/减仓/清仓
-    - 仓位管理/再平衡/仓位超标
-    - 基本面恶化/业绩变脸
-    - "用户问\"该不该卖\"\"要不要走\""
-    - 持有期间定期体检
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 卖出决策框架
 
 > 配合 [[investment-handbook]] 第五部分（交易纪律）使用。

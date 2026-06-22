@@ -1,11 +1,3 @@
----
-name: morningstar-moat-framework
-description: 晨星护城河五维分析框架——选股时强制对照五大来源、趋势评级、假护城河识别、护城河进化分类
-metadata:
-  type: project
-  originSessionId: current
----
-
 # 晨星护城河分析框架
 
 > 来源：《投资的护城河》（晨星）+ Pat Dorsey《The Little Book That Builds Wealth》

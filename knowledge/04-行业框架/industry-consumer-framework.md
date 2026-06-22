@@ -1,17 +1,3 @@
----
-name: industry-consumer-framework
-description: 消费/食品行业分析框架——量价拆分、渠道先行指标、提价权检验、品牌护城河量化
-metadata: 
-  node_type: memory
-  triggers: 
-    - 海天味业/调味品/食品饮料/消费股
-    - 品牌/经销商/提价/合同负债
-    - 消费品毛利率/净利率
-    - 品类扩张/渠道库存
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 消费/食品行业分析框架
 
 > 配合 [[investment-handbook]] 维度一和维度二使用。

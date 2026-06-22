@@ -1,18 +1,3 @@
----
-name: valuation-methodology
-description: 估值方法论——DCF思维框架+行业特化估值逻辑+反向DCF实操+估值十条铁律
-metadata: 
-  node_type: memory
-  triggers: 
-    - PE/PB/PEG/估值/贵不贵/便宜
-    - DCF/反向DCF/安全边际/目标价
-    - 内在价值/合理估值/估值中枢
-    - 任何个股分析（必须加载）
-    - "用户问\"什么价格合理\"\"值多少钱\""
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 估值方法论
 
 > 配合 [[investment-handbook]] 维度三（估值水位）使用。

@@ -1,16 +1,3 @@
----
-name: pre-trade-checklist
-description: 交易前自检卡片——每次买入/卖出前花1分钟跑的七条检查清单，防止情绪驱动交易
-metadata:
-  node_type: memory
-  triggers:
-    - 买入/卖出/加仓/减仓
-    - 交易/下单
-    - 想买/想卖
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 交易前自检卡片
 
 > **每次买或卖之前，花1分钟跑完这7条。不跑不下单。**

@@ -1,18 +1,3 @@
----
-name: behavioral-finance-tools
-description: 行为金融实操工具——盘中自检清单+交易前后心理模板+三种失败模式破解
-metadata: 
-  node_type: memory
-  triggers: 
-    - 情绪/恐慌/贪婪/追高/割肉/后悔/FOMO
-    - 交易心理/自检/复盘
-    - 用户表现出强烈交易冲动
-    - 犯错后反思/想改进交易纪律
-    - 讨论为什么会亏钱/投资错误
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 行为金融实操工具
 
 > 在 [[poor-charlies-almanack]] 的 25 种误判心理学基础上，加一套可以在交易中实际使用的方法。

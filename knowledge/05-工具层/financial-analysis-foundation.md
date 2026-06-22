@@ -1,18 +1,3 @@
----
-name: financial-analysis-foundation
-description: 财务分析速查手册——三表勾稽关系、A股造假高频信号、银行/消费/电力行业特化指标
-metadata: 
-  node_type: memory
-  triggers: 
-    - 看财报/季报/年报
-    - 财务造假/暴雷/排雷
-    - 三张表/现金流/应收/存货/商誉
-    - 个股分析时需要先确认利润质量
-    - ROE拆解/杜邦分析
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 财务分析速查手册
 
 > 配合 [[investment-handbook]] 维度二（财务健康）使用。不用成为会计专家，但要知道怎么看数字背后的故事。

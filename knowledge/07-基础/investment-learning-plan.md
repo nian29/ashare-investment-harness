@@ -1,15 +1,3 @@
----
-name: investment-learning-plan
-description: 用户投资学习计划——四阶段系统学习 38 篇投资框架，从生存工具包到独立决策
-metadata: 
-  node_type: memory
-  type: project
-  triggers: 
-    - 学习计划/怎么学/读什么
-    - 学习方法/顺序/先看哪篇
-  originSessionId: 08a144ba-a4c5-433d-b48e-2adad84dfa3a
----
-
 # 投资学习计划
 
 > 建立：2026-06-17 | 目标：一个月从"跟着感觉走"到"按框架决策"

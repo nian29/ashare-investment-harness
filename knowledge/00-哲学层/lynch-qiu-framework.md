@@ -1,18 +1,3 @@
----
-name: lynch-qiu-framework
-description: 彼得·林奇+邱国鹭投资框架——林奇六种股票分类+PEG系统+邱国鹭数月亮不数星星
-metadata: 
-  node_type: memory
-  triggers: 
-    - 林奇/邱国鹭/股票分类/PEG
-    - 数月亮/月亮星星/选龙头
-    - 买你懂的/能力圈/tenbagger
-    - 新标的初筛/行业格局判断
-    - 便宜是硬道理
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 彼得·林奇 + 邱国鹭框架展开
 
 > 手册里提了林奇（买你懂的、生活选股、tenbagger）和邱国鹭（数月亮不数星星、便宜是硬道理），但没有展开。这篇把两个框架具体化，嵌入 A 股实践。

@@ -1,18 +1,3 @@
----
-name: macro-transmission-mechanism
-description: 宏观传导机制——利率→银行→股市的完整传导链+信用周期+美联储决策框架+持仓敏感性矩阵
-metadata: 
-  node_type: memory
-  triggers: 
-    - 美联储/议息/加息/降息/利率
-    - 宏观/货币政策/信用周期
-    - 社融/M1/M2/LPR
-    - 人民币汇率/外资流向
-    - 讨论宏观环境对持仓的影响
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # 宏观传导机制
 
 > 配合 [[investment-handbook]] 第四部分（宏观环境扫描）+ [[financial-crisis-classics]] 使用。

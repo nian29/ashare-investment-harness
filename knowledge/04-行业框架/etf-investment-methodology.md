@@ -1,18 +1,3 @@
----
-name: etf-investment-methodology
-description: ETF投资方法论——ETF与个股的根本区别+指数估值水位+行业景气度+定投策略
-metadata: 
-  node_type: memory
-  triggers: 
-    - ETF/指数基金/定投/行业轮动
-    - 估值分位/指数PE
-    - 电力ETF/通信ETF/行业ETF
-    - ETF和个股的区别
-    - 越跌越买/定投策略
-  type: reference
-  originSessionId: 24e9d3d1-09e1-4386-a76d-3ea1dff55ad8
----
-
 # ETF 投资方法论
 
 > ETF 和个股的持有逻辑完全不同。你持有电力 ETF（561560），但之前一直用个股框架在看它。这篇纠正这一点。
