@@ -11,8 +11,10 @@
 """
 
 import argparse
+import csv
 import json
 import sys
+from datetime import date, datetime
 from pathlib import Path
 
 # 强制 UTF-8 输出（Windows Git Bash 兼容）
@@ -28,6 +30,28 @@ def load_portfolio():
     """加载持仓配置"""
     with open(PORTFOLIO_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_from_cache(portfolio):
+    """从本地 CSV 缓存读取最新价格"""
+    cache_dir = DATA_DIR / "cache"
+    cache_files = sorted(cache_dir.glob("prices_*.csv"))
+    if not cache_files:
+        print("[WARN] 无缓存文件，请先运行: python scripts/cache_update.py --prices '...'")
+        return None
+
+    latest = cache_files[-1]
+    cache_date = latest.stem.replace("prices_", "")
+    age = date.today() - datetime.strptime(cache_date, "%Y%m%d").date()
+
+    prices = {}
+    with open(latest, "r", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            prices[row["symbol"]] = float(row["price"])
+
+    freshness = "今日" if age.days == 0 else f"{age.days}天前"
+    print(f"[CACHE] 使用 {latest.name} 数据（{freshness}）\n")
+    return prices
 
 
 def calc_summary(portfolio, prices=None):
@@ -160,6 +184,7 @@ def main():
     parser = argparse.ArgumentParser(description="A股持仓跟踪工具")
     parser.add_argument("--live", action="store_true", help="交互式输入实时价格")
     parser.add_argument("--prices", type=str, help="价格列表（逗号分隔，按JSON顺序: 601288,603288,561560,600377）")
+    parser.add_argument("--cache", action="store_true", help="从本地缓存读取价格（需先运行 cache_update.py --prices '...'）")
     parser.add_argument("--alerts-only", action="store_true", help="只看预警")
     parser.add_argument("--json", action="store_true", help="JSON输出")
 
@@ -173,6 +198,8 @@ def main():
         prices = interactive_prices(portfolio)
     elif args.prices:
         prices = parse_prices(args.prices, portfolio)
+    elif args.cache:
+        prices = load_from_cache(portfolio)
 
     summary = calc_summary(portfolio, prices)
 
