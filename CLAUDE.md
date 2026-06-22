@@ -68,7 +68,18 @@ templates/          报告模板
 3. 本地 CSV 缓存（`data/cache/`，近 3 日）
 4. 三次失败 → 承认数据不可用，不编造
 
-## 会话结束时
+## 日志体系（结构化记录）
 
-- 提醒当日重要操作记录到交易日志
-- 检查是否有新经验需要写入 knowledge/
+| 日志 | 何时写 | 位置 |
+|------|--------|------|
+| 每日行情 | 每天收盘后 | [investment-daily-log.md](knowledge/08-日志/investment-daily-log.md) |
+| 交易记录 | 每笔买卖后立即 | [trade-log.md](knowledge/08-日志/trade-log.md) |
+| 交易决策详情 | 交易前（模板）+ 交易后（结果） | [trade-decision-log.md](knowledge/08-日志/trade-decision-log.md) |
+| 复盘 | 交易 1 个月后 | [trade-review-log.md](knowledge/08-日志/trade-review-log.md) |
+| 规则修正 | 改了规则就记 | [rule-revision-log.md](knowledge/08-日志/rule-revision-log.md) |
+
+**纪律**：不做笔记不交易。每笔决策必须有事前验尸记录。
+
+## 会话结束时
+- 提醒当日重要操作记录到 [trade-log.md](knowledge/08-日志/trade-log.md)
+- 检查是否有新经验需要写入 knowledge/ 或修正规则

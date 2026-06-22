@@ -1,11 +1,11 @@
 # A股投资知识库 v3 — 从 knowledge/*.md 自动生成
-# 生成时间: 2026-06-22 12:36
+# 生成时间: 2026-06-22 12:41
 # 不要手动编辑此文件！MD 是源头，修改请改 knowledge/ 下的 MD 文件
 # 然后运行: python scripts/yaml_extractor.py
 
 meta:
   version: 0.1.0
-  generated: 2026-06-22 12:36
+  generated: 2026-06-22 12:41
   source: Auto-extracted from knowledge/*.md
   total_files: '35'
 stocks:
@@ -300,50 +300,102 @@ sectors:
       - [[financial-analysis-foundation]] — 财务分析（重点关注经营现金流 vs 净利润的差距）'
     cycle_position: ''
 rules:
+  - id: rule_howard-marks-investment-principles_003
+    name: 从众 — 放弃独立判断，跟随羊群
+    content: 从众 — 放弃独立判断，跟随羊群
+    source_file: knowledge\00-哲学层\howard-marks-investment-principles.md
+  - id: rule_howard-marks-investment-principles_005
+    name: 自负 — 必须正确、不愿认错
+    content: 自负 — 必须正确、不愿认错
+    source_file: knowledge\00-哲学层\howard-marks-investment-principles.md
   - id: rule_investment-handbook_004
     name: 如果狂热突然结束，我的持仓能不能扛住-20%到-30%？
     content: 如果狂热突然结束，我的持仓能不能扛住-20%到-30%？
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_001
     name: 单只上限
-    content: 不超过总仓位 **20%**（海天当前28.9%已超标，后续不追加）
+    content: 不超过总仓位 20%（海天当前28.9%已超标，后续不追加）
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_002
     name: 行业上限
-    content: 单一行业不超过 **40%**
+    content: 单一行业不超过 40%
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_003
     name: 首次建仓
-    content: 不超过该标的总计划仓位的 **50%**
+    content: 不超过该标的总计划仓位的 50%
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_004
     name: 🔴 硬止损
-    content: 减仓一半
+    content: 单只浮亏 -8% | 减仓一半
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_005
     name: 🔴 清仓线
-    content: 全部清仓，不问原因
+    content: 单只浮亏 -15% | 全部清仓，不问原因
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_006
     name: 🟡 软止损
-    content: 立即评估，该走就走
+    content: 基本面恶化（业绩变脸/政策利空） | 立即评估，该走就走
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_007
     name: 🟡 时间止损
-    content: 重新评估逻辑，可能减仓
+    content: 买入后3个月不涨反跌 | 重新评估逻辑，可能减仓
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_008
     name: 禁止行为
     content: 原因
     source_file: knowledge\00-哲学层\investment-handbook.md
   - id: rule_investment-handbook_tbl_009
+    name: 盈利后过度自信
+    content: 把运气当能力
+    source_file: knowledge\00-哲学层\investment-handbook.md
+  - id: rule_investment-handbook_tbl_010
     name: 不做笔记就交易
     content: 没有记录就没有进步
     source_file: knowledge\00-哲学层\investment-handbook.md
+  - id: rule_lynch-qiu-framework_001
+    name: 基本面恶化（不管赚了多少都卖）
+    content: 基本面恶化（不管赚了多少都卖）
+    source_file: knowledge\00-哲学层\lynch-qiu-framework.md
+  - id: rule_poor-charlies-almanack_tbl_000
+    name: '12'
+    content: 自视过高 | 禀赋效应、过度自信
+    source_file: knowledge\00-哲学层\poor-charlies-almanack.md
+  - id: rule_poor-charlies-almanack_tbl_001
+    name: '15'
+    content: 社会认同 | 从众、羊群效应
+    source_file: knowledge\00-哲学层\poor-charlies-almanack.md
+  - id: rule_poor-charlies-almanack_tbl_002
+    name: '24'
+    content: 重视理由 | 有理由（哪怕烂理由）就更可能接受
+    source_file: knowledge\00-哲学层\poor-charlies-almanack.md
   - id: rule_financial-crisis-classics_tbl_000
     name: 如果狂热突然结束，我的持仓能不能扛住-20%到-30%的回撤？
-    content: 银行(农行)+消费(海天)+电力ETF + 31%现金 → 防御性尚可但需持续评估
+    content: 两本书的综合应用 | 银行(农行)+消费(海天)+电力ETF + 31%现金 → 防御性尚可但需持续评估
     source_file: knowledge\02-宏观层\financial-crisis-classics.md
+  - id: rule_behavioral-finance-tools_tbl_000
+    name: 从众/社会认同
+    content: '"CPO 涨停了全市场都在买，我也应该买" | #15'
+    source_file: knowledge\05-工具层\behavioral-finance-tools.md
+  - id: rule_behavioral-finance-tools_tbl_001
+    name: 自视过高
+    content: '"这次我肯定看对了" → 过度集中、不上止损 | #12'
+    source_file: knowledge\05-工具层\behavioral-finance-tools.md
+  - id: rule_behavioral-finance-tools_004
+    name: 我是否觉得自己"这次肯定对了"？
+    content: 我是否觉得自己"这次肯定对了"？
+    source_file: knowledge\05-工具层\behavioral-finance-tools.md
+  - id: rule_behavioral-finance-tools_005
+    name: 如果明天市场就证明我错了（跌 8%），我能接受吗？
+    content: 如果明天市场就证明我错了（跌 8%），我能接受吗？
+    source_file: knowledge\05-工具层\behavioral-finance-tools.md
+  - id: rule_quarterly-report-quick-guide_tbl_000
+    name: 电力ETF
+    content: ETF净值趋势 | 稳定向上 | 横盘 | 持续下跌+行业恶化
+    source_file: knowledge\05-工具层\quarterly-report-quick-guide.md
+  - id: rule_sell-discipline-framework_001
+    name: 基本面恶化最明显的
+    content: 基本面恶化最明显的
+    source_file: knowledge\05-工具层\sell-discipline-framework.md
   - id: rule_sell-discipline-framework_001
     name: 绝不因"涨太多了"而匆忙卖。 涨多了不是卖的理由，涨到超过合理估值上限才是。让利润奔跑，但用移动止盈绳拴着。
     content: 绝不因"涨太多了"而匆忙卖。 涨多了不是卖的理由，涨到超过合理估值上限才是。让利润奔跑，但用移动止盈绳拴着。
@@ -380,6 +432,34 @@ rules:
     name: 买入纪律
     content: 分2-3次、不开盘30分钟内、不追涨停
     source_file: knowledge\06-执行层\investment-daily-check.md
+  - id: rule_pre-trade-checklist_tbl_000
+    name: 追涨："它一直在涨，再不买就晚了"
+    content: 第2问：为什么买？——"怕错过"=危险 | 好公司也要等好价格，不追高
+    source_file: knowledge\06-执行层\pre-trade-checklist.md
+  - id: rule_pre-trade-checklist_tbl_001
+    name: 恐慌割肉："跌了好多，赶紧卖"
+    content: 卖出第2问：当初的理由还在吗？ | 跌不是卖的理由，基本面恶化才是
+    source_file: knowledge\06-执行层\pre-trade-checklist.md
+  - id: rule_pre-trade-checklist_tbl_002
+    name: 仓位太重："全买进去"
+    content: 第5问：仓位超限了吗？ | 单只不超过20%，永远留现金
+    source_file: knowledge\06-执行层\pre-trade-checklist.md
+  - id: rule_trade-decision-log_005
+    name: 博弈论检查：谁在另一边？他们为什么卖/买？
+    content: 博弈论检查：谁在另一边？他们为什么卖/买？
+    source_file: knowledge\08-日志\trade-decision-log.md
+  - id: rule_trade-decision-log_006
+    name: 操作后仓位是否超过 20%？（是 → 必须有减仓计划）
+    content: 操作后仓位是否超过 20%？（是 → 必须有减仓计划）
+    source_file: knowledge\08-日志\trade-decision-log.md
+  - id: rule_trade-decision-log_007
+    name: 今天涨跌幅是否 > 5%？（是 → 不追）
+    content: 今天涨跌幅是否 > 5%？（是 → 不追）
+    source_file: knowledge\08-日志\trade-decision-log.md
+  - id: rule_trade-decision-log_008
+    name: 是执行纪律还是情绪反应？
+    content: 是执行纪律还是情绪反应？
+    source_file: knowledge\08-日志\trade-decision-log.md
 formulas:
   - raw: '期望值 = 胜率 × 赔率 − 败率 × 损失
 

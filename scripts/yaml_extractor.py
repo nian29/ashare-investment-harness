@@ -40,6 +40,13 @@ RULE_KEYWORDS = [
     "强制", "上限", "不追", "不做", "不超过", "每天", "每次",
     "先确保", "先看", "缺一不可", "三维", "硬止损", "清仓",
     "买得好", "防御优先", "不需要", "一定要", "务必",
+    # 交易自检
+    "能接受", "是否", "检查", "确认", "延迟",
+    # 卖出/止盈
+    "移动止盈", "回撤", "信号", "恶化", "调仓", "再平衡",
+    # 行为偏误
+    "偏误", "锚定", "从众", "过度", "自视过高", "FOMO", "害怕错过",
+    "禀赋", "损失厌恶", "确认偏误",
 ]
 
 
@@ -68,12 +75,15 @@ def extract_rules(filepath, lines):
     for i, line in enumerate(lines):
         stripped = line.strip()
 
-        # 检测段落标题
+        # 检测段落标题（扩展：覆盖交易自检、卖出、心理类段落）
         if re.match(r"^#{1,3}\s", stripped):
             section_title = stripped.lower()
             in_rule_section = any(kw in section_title for kw in
-                                  ["规则", "纪律", "纪律", "检查", "必须", "原则", "禁止", "不能",
-                                   "绝不", "止损", "止盈", "仓位", "交易", "强制"])
+                                  ["规则", "纪律", "检查", "必须", "原则", "禁止", "不能",
+                                   "绝不", "止损", "止盈", "仓位", "交易", "强制",
+                                   "买入前", "卖出前", "下单前", "自检", "七问", "五问",
+                                   "新手最", "偏误", "心理", "卖出.*绝不",
+                                   "仓位.*纪律", "基本面.*信号", "卖出信"])
             continue
 
         if not in_rule_section:
@@ -126,14 +136,19 @@ def extract_rules(filepath, lines):
         if "|" in stripped and not stripped.startswith("|---") and not stripped.startswith("|--"):
             cols = [c.strip() for c in stripped.split("|") if c.strip()]
             if len(cols) >= 2:
+                # 清理加粗标记
+                cols = [re.sub(r"\*+", "", c) for c in cols]
                 left, right = cols[0], cols[-1]
-                if left in ("规则", "名称", "条件", "止损线", "指标", "纪律", "---"):
+                if left in ("规则", "名称", "条件", "止损线", "指标", "纪律", "---",
+                            "偏误", "信号", "维度", "乐观叙事"):
                     continue
-                if is_rule_line(left + right):
+                # 合并所有列作为内容，left 作为名称
+                combined = " | ".join(cols[1:]) if len(cols) > 2 else right
+                if is_rule_line(left + combined):
                     rules.append({
                         "id": f"rule_{filepath.stem}_tbl_{len(rules):03d}",
                         "name": left[:80],
-                        "content": right[:300],
+                        "content": combined[:300],
                         "source_file": str(filepath.relative_to(ROOT)),
                     })
 
